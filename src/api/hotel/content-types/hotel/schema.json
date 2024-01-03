@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hotels",
+  "info": {
+    "singularName": "hotel",
+    "pluralName": "hotels",
+    "displayName": "hotel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "galleryImgs": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "address": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "guest": {
+      "type": "integer",
+      "default": 1
+    },
+    "beds": {
+      "type": "integer",
+      "default": 1
+    },
+    "baths": {
+      "type": "integer",
+      "default": 0
+    },
+    "bedrooms": {
+      "type": "integer",
+      "default": 1
+    },
+    "description": {
+      "type": "text"
+    },
+    "amenties": {
+      "type": "json"
+    },
+    "cancellation": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "checkTime": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "specialNote": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
