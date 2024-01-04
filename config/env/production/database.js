@@ -14,6 +14,6 @@ export default ({ env }) => ({
         ca: env('DATABASE_CA'),
       },
     },
-    debug: false,
+    debug: true,
   },
 });
