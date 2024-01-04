@@ -11,7 +11,7 @@ export default ({ env }) => ({
       user: config.user,
       password: config.password,
       ssl: {
-        rejectUnauthorized: false
+        ca: env('DATABASE_CA'),
       },
     },
     debug: false,
