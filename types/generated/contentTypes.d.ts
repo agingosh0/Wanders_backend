@@ -362,49 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiHotelHotel extends Schema.CollectionType {
-  collectionName: 'hotels';
-  info: {
-    singularName: 'hotel';
-    pluralName: 'hotels';
-    displayName: 'hotel';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    galleryImgs: Attribute.Media & Attribute.Required;
-    address: Attribute.String & Attribute.Required;
-    guest: Attribute.Integer & Attribute.DefaultTo<1>;
-    beds: Attribute.Integer & Attribute.DefaultTo<1>;
-    baths: Attribute.Integer & Attribute.DefaultTo<0>;
-    bedrooms: Attribute.Integer & Attribute.DefaultTo<1>;
-    description: Attribute.Text;
-    amenties: Attribute.JSON;
-    cancellation: Attribute.String & Attribute.Required;
-    checkTime: Attribute.String & Attribute.Required;
-    specialNote: Attribute.String & Attribute.Required;
-    location: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::hotel.hotel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::hotel.hotel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -720,6 +677,79 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiHotelHotel extends Schema.CollectionType {
+  collectionName: 'hotels';
+  info: {
+    singularName: 'hotel';
+    pluralName: 'hotels';
+    displayName: 'hotel';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    galleryImgs: Attribute.Media & Attribute.Required;
+    address: Attribute.String & Attribute.Required;
+    guest: Attribute.Integer & Attribute.DefaultTo<1>;
+    beds: Attribute.Integer & Attribute.DefaultTo<1>;
+    baths: Attribute.Integer & Attribute.DefaultTo<0>;
+    bedrooms: Attribute.Integer & Attribute.DefaultTo<1>;
+    description: Attribute.Text;
+    amenties: Attribute.JSON;
+    cancellation: Attribute.String & Attribute.Required;
+    checkTime: Attribute.String & Attribute.Required;
+    specialNote: Attribute.String & Attribute.Required;
+    location: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLocationLocation extends Schema.CollectionType {
+  collectionName: 'locations';
+  info: {
+    singularName: 'location';
+    pluralName: 'locations';
+    displayName: 'location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    place: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -730,13 +760,14 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::hotel.hotel': ApiHotelHotel;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::hotel.hotel': ApiHotelHotel;
+      'api::location.location': ApiLocationLocation;
     }
   }
 }
