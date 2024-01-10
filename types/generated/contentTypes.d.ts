@@ -376,7 +376,7 @@ export interface ApiHotelHotel extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     galleryImgs: Attribute.Media & Attribute.Required;
-    address: Attribute.String & Attribute.Required & Attribute.Unique;
+    address: Attribute.String & Attribute.Required;
     guest: Attribute.Integer & Attribute.DefaultTo<1>;
     beds: Attribute.Integer & Attribute.DefaultTo<1>;
     baths: Attribute.Integer & Attribute.DefaultTo<0>;
@@ -386,6 +386,7 @@ export interface ApiHotelHotel extends Schema.CollectionType {
     cancellation: Attribute.String & Attribute.Required;
     checkTime: Attribute.String & Attribute.Required;
     specialNote: Attribute.String & Attribute.Required;
+    location: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
