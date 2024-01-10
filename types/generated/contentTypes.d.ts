@@ -701,7 +701,11 @@ export interface ApiHotelHotel extends Schema.CollectionType {
     cancellation: Attribute.String & Attribute.Required;
     checkTime: Attribute.String & Attribute.Required;
     specialNote: Attribute.String & Attribute.Required;
-    location: Attribute.String & Attribute.Required;
+    location: Attribute.Relation<
+      'api::hotel.hotel',
+      'manyToOne',
+      'api::location.location'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -726,12 +730,17 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     singularName: 'location';
     pluralName: 'locations';
     displayName: 'location';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    place: Attribute.String;
+    hotels: Attribute.Relation<
+      'api::location.location',
+      'oneToMany',
+      'api::hotel.hotel'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

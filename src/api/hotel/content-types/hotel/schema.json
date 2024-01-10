@@ -70,8 +70,10 @@
       "required": true
     },
     "location": {
-      "type": "string",
-      "required": true
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "hotels"
     }
   }
 }
