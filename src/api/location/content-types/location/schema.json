@@ -17,6 +17,18 @@
       "relation": "oneToMany",
       "target": "api::hotel.hotel",
       "mappedBy": "location"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "lattitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
     }
   }
 }

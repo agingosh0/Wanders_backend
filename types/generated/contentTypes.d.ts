@@ -741,6 +741,10 @@ export interface ApiLocationLocation extends Schema.CollectionType {
       'oneToMany',
       'api::hotel.hotel'
     >;
+    name: Attribute.String;
+    description: Attribute.String;
+    lattitude: Attribute.String;
+    longitude: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
