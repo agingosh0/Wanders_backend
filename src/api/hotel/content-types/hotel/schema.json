@@ -60,7 +60,7 @@
       "required": true,
       "unique": false
     },
-    "checkTime": {
+    "checkInTime": {
       "type": "string",
       "required": true,
       "unique": false
@@ -74,6 +74,10 @@
       "relation": "manyToOne",
       "target": "api::location.location",
       "inversedBy": "hotels"
+    },
+    "checkOutTime": {
+      "type": "string",
+      "required": true
     }
   }
 }

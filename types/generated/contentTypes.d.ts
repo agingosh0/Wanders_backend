@@ -699,13 +699,14 @@ export interface ApiHotelHotel extends Schema.CollectionType {
     description: Attribute.Text;
     amenties: Attribute.JSON;
     cancellation: Attribute.String & Attribute.Required;
-    checkTime: Attribute.String & Attribute.Required;
+    checkInTime: Attribute.String & Attribute.Required;
     specialNote: Attribute.String & Attribute.Required;
     location: Attribute.Relation<
       'api::hotel.hotel',
       'manyToOne',
       'api::location.location'
     >;
+    checkOutTime: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -741,7 +742,7 @@ export interface ApiLocationLocation extends Schema.CollectionType {
       'oneToMany',
       'api::hotel.hotel'
     >;
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Required;
     description: Attribute.String;
     lattitude: Attribute.String;
     longitude: Attribute.String;
